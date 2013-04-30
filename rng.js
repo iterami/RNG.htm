@@ -13,6 +13,14 @@ function random_number(){
 	get('result').innerHTML=result;
 	result=''
 }
+function reset(){
+	if(confirm('Reset settings?')){
+		get('base').value=0;
+		get('range').value=10;
+		get('repeat').value=1;
+		get('result').innerHTML=''
+	}
+}
 function value(i){
 	return get(i).value
 }
