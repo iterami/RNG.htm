@@ -4,11 +4,14 @@ function get(i){
 
 function random_number(){
     save();
+
+    /*generate random numbers*/
     i = get('repeat').value - 1;
     range = parseInt(get('range').value) + 1;
     do{
         result += Math.floor(Math.random() * range + get('base').value) + ' '
     }while(i--);
+
     get('result').innerHTML = result;
     result = ''
 }
@@ -27,8 +30,13 @@ function save(){
     if(get('repeat').value < 1){
         get('repeat').value = 1
     }
+
     i = 2;
-    j = ['base','range','repeat'];
+    j = [
+        'base',
+        'range',
+        'repeat'
+    ];
     do{
         if(isNaN(get(j[i]).value) || get(j[i]).value === [0,10,1][i]){
             get(j[i]).value = [0,10,1][i];
