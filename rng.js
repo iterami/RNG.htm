@@ -61,6 +61,7 @@ get('repeat').value = ls.getItem('rng2') === null ? 1 : ls.getItem('rng2');
 window.onkeydown = function(e){
     i = window.event ? event : e;
     i = i.charCode ? i.charCode: i.keyCode;
+
     if(i === 72){/*H*/
         random_number()
     }
