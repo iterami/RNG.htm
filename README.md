@@ -1,1 +1,1 @@
-A random number generator created using CSS, HTML, and JavaScript. Public domain.
+A web-based random number generator tool.

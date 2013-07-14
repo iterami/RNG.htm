@@ -5,7 +5,7 @@ function get(i){
 function random_number(){
     save();
 
-    /* generate random numbers */
+    // generate random numbers
     i = get('repeat').value - 1;
     range = parseInt(get('range').value) + 1;
     do{
@@ -62,15 +62,15 @@ var ls = window.localStorage;
 var range = 2;
 var result = '';
 
-get('base').value = ls.getItem('rng-0') === null ? 0 : ls.getItem('rng-0');
-get('range').value = ls.getItem('rng-1') === null ? 10 : ls.getItem('rng-1');
-get('repeat').value = ls.getItem('rng-2') === null ? 1 : ls.getItem('rng-2');
+get('base').value   = ls.getItem('rng-0') === null ?  0 : ls.getItem('rng-0');
+get('range').value  = ls.getItem('rng-1') === null ? 10 : ls.getItem('rng-1');
+get('repeat').value = ls.getItem('rng-2') === null ?  1 : ls.getItem('rng-2');
 
 window.onkeydown = function(e){
     i = window.event ? event : e;
     i = i.charCode ? i.charCode: i.keyCode;
 
-    if(i === 72){/* H */
+    if(i === 72){// H
         random_number();
     }
 }
