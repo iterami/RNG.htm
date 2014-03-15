@@ -1,55 +1,51 @@
-function get(i){
-    return document.getElementById(i);
-}
-
 function random_number(){
     save();
 
     // generate random numbers
-    i = get('repeat').value - 1;
-    range = parseInt(get('range').value) + 1;
+    i = document.getElementById('repeat').value - 1;
+    range = parseInt(document.getElementById('range').value) + 1;
     do{
-        result += Math.floor(Math.random() * range + get('base').value) + ' ';
+        result += Math.floor(Math.random() * range + document.getElementById('base').value) + ' ';
     }while(i--);
 
-    get('result').innerHTML = result;
+    document.getElementById('result').innerHTML = result;
     result = '';
 }
 
 function reset(){
     if(confirm('Reset settings?')){
-        get('base').value = 0;
-        get('range').value = 10;
-        get('repeat').value = 1;
-        get('result').innerHTML = '';
+        document.getElementById('base').value = 0;
+        document.getElementById('range').value = 10;
+        document.getElementById('repeat').value = 1;
+        document.getElementById('result').innerHTML = '';
 
         save();
     }
 }
 
 function save(){
-    if(get('repeat').value < 1){
-        get('repeat').value = 1;
+    if(document.getElementById('repeat').value < 1){
+        document.getElementById('repeat').value = 1;
     }
 
     i = 2;
     j = [
-        'base',
-        'range',
-        'repeat'
+      'base',
+      'range',
+      'repeat'
     ];
     do{
-        if(isNaN(get(j[i]).value) || get(j[i]).value === [0, 10, 1][i]){
-            get(j[i]).value = [
-                0,
-                10,
-                1
+        if(isNaN(document.getElementById(j[i]).value) || document.getElementById(j[i]).value === [0, 10, 1][i]){
+            document.getElementById(j[i]).value = [
+              0,
+              10,
+              1
             ][i];
-            ls.removeItem('rng-' + i);
+            window.localStorage.removeItem('rng-' + i);
         }else{
-            ls.setItem(
-                'rng-' + i,
-                get(j[i]).value
+            window.localStorage.setItem(
+              'rng-' + i,
+              document.getElementById(j[i]).value
             );
         }
     }while(i--);
@@ -62,9 +58,15 @@ var ls = window.localStorage;
 var range = 2;
 var result = '';
 
-get('base').value   = ls.getItem('rng-0') === null ?  0 : ls.getItem('rng-0');
-get('range').value  = ls.getItem('rng-1') === null ? 10 : ls.getItem('rng-1');
-get('repeat').value = ls.getItem('rng-2') === null ?  1 : ls.getItem('rng-2');
+document.getElementById('base').value = window.localStorage.getItem('rng-0') === null
+  ? 0
+  : window.localStorage.getItem('rng-0');
+document.getElementById('range').value = window.localStorage.getItem('rng-1') === null
+  ? 10
+  : window.localStorage.getItem('rng-1');
+document.getElementById('repeat').value = window.localStorage.getItem('rng-2') === null
+  ? 1
+  : window.localStorage.getItem('rng-2');
 
 window.onkeydown = function(e){
     i = window.event ? event : e;
