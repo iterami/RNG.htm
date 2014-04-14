@@ -2,10 +2,10 @@ function random_number(){
     save();
 
     // generate random numbers
-    i = document.getElementById('repeat').value - 1;
+    i = parseInt(document.getElementById('repeat').value) - 1;
     range = parseInt(document.getElementById('range').value) + 1;
     do{
-        result += Math.floor(Math.random() * range + document.getElementById('base').value) + ' ';
+        result += Math.floor(Math.random() * range + parseInt(document.getElementById('base').value)) + ' ';
     }while(i--);
 
     document.getElementById('result').innerHTML = result;
@@ -24,7 +24,7 @@ function reset(){
 }
 
 function save(){
-    if(document.getElementById('repeat').value < 1){
+    if(parseInt(document.getElementById('repeat').value) < 1){
         document.getElementById('repeat').value = 1;
     }
 

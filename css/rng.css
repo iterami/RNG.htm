@@ -1,7 +1,0 @@
-input{
-    width: 75px;
-}
-input[type=button]{
-    cursor: pointer;
-    width: auto;
-}
