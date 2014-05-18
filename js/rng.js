@@ -2,11 +2,13 @@ function random_number(){
     save();
 
     // generate random numbers
-    i = parseInt(document.getElementById('repeat').value) - 1;
-    range = parseInt(document.getElementById('range').value) + 1;
+    var range = parseInt(document.getElementById('range').value) + 1;
+    var loop_counter = parseInt(document.getElementById('repeat').value) - 1;
     do{
-        result += Math.floor(Math.random() * range + parseInt(document.getElementById('base').value)) + ' ';
-    }while(i--);
+        result += Math.floor(Math.random() * range
+          + parseInt(document.getElementById('base').value))
+          + ' ';
+    }while(loop_counter--);
 
     document.getElementById('result').innerHTML = result;
     result = '';
@@ -28,34 +30,32 @@ function save(){
         document.getElementById('repeat').value = 1;
     }
 
-    i = 2;
     j = [
       'base',
       'range',
       'repeat'
     ];
+    var loop_counter = 2;
     do{
-        if(isNaN(document.getElementById(j[i]).value) || document.getElementById(j[i]).value === [0, 10, 1][i]){
-            document.getElementById(j[i]).value = [
+        if(isNaN(document.getElementById(j[loop_counter]).value)
+          || document.getElementById(j[loop_counter]).value === [0, 10, 1][loop_counter]){
+            document.getElementById(j[loop_counter]).value = [
               0,
               10,
               1
-            ][i];
-            window.localStorage.removeItem('rng-' + i);
+            ][loop_counter];
+            window.localStorage.removeItem('rng-' + loop_counter);
         }else{
             window.localStorage.setItem(
-              'rng-' + i,
-              document.getElementById(j[i]).value
+              'rng-' + loop_counter,
+              document.getElementById(j[loop_counter]).value
             );
         }
-    }while(i--);
+    }while(loop_counter--);
     j = '';
 }
 
-var i = 0;
 var j = '';
-var ls = window.localStorage;
-var range = 2;
 var result = '';
 
 document.getElementById('base').value = window.localStorage.getItem('rng-0') === null
@@ -69,10 +69,10 @@ document.getElementById('repeat').value = window.localStorage.getItem('rng-2') =
   : window.localStorage.getItem('rng-2');
 
 window.onkeydown = function(e){
-    i = window.event ? event : e;
-    i = i.charCode ? i.charCode: i.keyCode;
+    var key = window.event ? event : e;
+    key = key.charCode ? key.charCode: key.keyCode;
 
-    if(i === 72){// H
+    if(key === 72){// H
         random_number();
     }
-}
+};
