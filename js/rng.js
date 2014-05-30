@@ -1,6 +1,8 @@
 function random_number(){
     save();
 
+    var result = '';
+
     // generate random numbers
     var range = parseInt(document.getElementById('range').value) + 1;
     var loop_counter = parseInt(document.getElementById('repeat').value) - 1;
@@ -11,7 +13,6 @@ function random_number(){
     }while(loop_counter--);
 
     document.getElementById('result').innerHTML = result;
-    result = '';
 }
 
 function reset(){
@@ -30,16 +31,16 @@ function save(){
         document.getElementById('repeat').value = 1;
     }
 
-    j = [
+    var settings_ids = [
       'base',
       'range',
       'repeat'
     ];
     var loop_counter = 2;
     do{
-        if(isNaN(document.getElementById(j[loop_counter]).value)
-          || document.getElementById(j[loop_counter]).value === [0, 10, 1][loop_counter]){
-            document.getElementById(j[loop_counter]).value = [
+        if(isNaN(document.getElementById(settings_ids[loop_counter]).value)
+          || document.getElementById(settings_ids[loop_counter]).value === [0, 10, 1][loop_counter]){
+            document.getElementById(settings_ids[loop_counter]).value = [
               0,
               10,
               1
@@ -48,15 +49,11 @@ function save(){
         }else{
             window.localStorage.setItem(
               'rng-' + loop_counter,
-              document.getElementById(j[loop_counter]).value
+              document.getElementById(settings_ids[loop_counter]).value
             );
         }
     }while(loop_counter--);
-    j = '';
 }
-
-var j = '';
-var result = '';
 
 document.getElementById('base').value = window.localStorage.getItem('rng-0') === null
   ? 0
