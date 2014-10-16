@@ -31,39 +31,41 @@ function save(){
         document.getElementById('repeat').value = 1;
     }
 
-    var settings_ids = [
-      'base',
-      'range',
-      'repeat'
-    ];
     var loop_counter = 2;
     do{
-        if(isNaN(document.getElementById(settings_ids[loop_counter]).value)
-          || document.getElementById(settings_ids[loop_counter]).value === [0, 10, 1][loop_counter]){
-            document.getElementById(settings_ids[loop_counter]).value = [
+        var id = [
+          'base',
+          'range',
+          'repeat'
+        ][loop_counter];
+
+        if(isNaN(document.getElementById(id).value)
+          || document.getElementById(id).value === [0, 10, 1][loop_counter]){
+            document.getElementById(id).value = [
               0,
               10,
               1
             ][loop_counter];
-            window.localStorage.removeItem('rng-' + loop_counter);
+            window.localStorage.removeItem('RNG.htm-' + id);
+
         }else{
             window.localStorage.setItem(
-              'rng-' + loop_counter,
-              document.getElementById(settings_ids[loop_counter]).value
+              'RNG.htm-' + id,
+              document.getElementById(id).value
             );
         }
     }while(loop_counter--);
 }
 
-document.getElementById('base').value = window.localStorage.getItem('rng-0') === null
+document.getElementById('base').value = window.localStorage.getItem('RNG.htm-base') === null
   ? 0
-  : window.localStorage.getItem('rng-0');
-document.getElementById('range').value = window.localStorage.getItem('rng-1') === null
+  : window.localStorage.getItem('RNG.htm-base');
+document.getElementById('range').value = window.localStorage.getItem('RNG.htm-range') === null
   ? 10
-  : window.localStorage.getItem('rng-1');
-document.getElementById('repeat').value = window.localStorage.getItem('rng-2') === null
+  : window.localStorage.getItem('RNG.htm-range');
+document.getElementById('repeat').value = window.localStorage.getItem('RNG.htm-repeat') === null
   ? 1
-  : window.localStorage.getItem('rng-2');
+  : window.localStorage.getItem('RNG.htm-repeat');
 
 window.onkeydown = function(e){
     var key = window.event ? event : e;
