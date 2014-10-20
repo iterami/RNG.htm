@@ -36,15 +36,15 @@ function save(){
         var id = [
           'base',
           'range',
-          'repeat'
+          'repeat',
         ][loop_counter];
 
         if(isNaN(document.getElementById(id).value)
-          || document.getElementById(id).value === [0, 10, 1][loop_counter]){
+          || document.getElementById(id).value === [0, 10, 1,][loop_counter]){
             document.getElementById(id).value = [
               0,
               10,
-              1
+              1,
             ][loop_counter];
             window.localStorage.removeItem('RNG.htm-' + id);
 
@@ -71,7 +71,7 @@ window.onkeydown = function(e){
     var key = window.event ? event : e;
     key = key.charCode ? key.charCode: key.keyCode;
 
-    if(key === 72){// H
+    if(key === 13){// ENTER
         random_number();
     }
 };
