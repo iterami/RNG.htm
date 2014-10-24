@@ -3,7 +3,7 @@ function random_number(){
 
     var result = '';
 
-    // generate random numbers
+    // Generate random number(s).
     var range = parseInt(document.getElementById('range').value) + 1;
     var loop_counter = parseInt(document.getElementById('repeat').value) - 1;
     do{
@@ -16,14 +16,16 @@ function random_number(){
 }
 
 function reset(){
-    if(confirm('Reset settings?')){
-        document.getElementById('base').value = 0;
-        document.getElementById('range').value = 10;
-        document.getElementById('repeat').value = 1;
-        document.getElementById('result').innerHTML = '';
-
-        save();
+    if(!confirm('Reset settings?')){
+        return;
     }
+
+    document.getElementById('base').value = 0;
+    document.getElementById('range').value = 10;
+    document.getElementById('repeat').value = 1;
+    document.getElementById('result').innerHTML = '';
+
+    save();
 }
 
 function save(){
@@ -71,7 +73,8 @@ window.onkeydown = function(e){
     var key = window.event ? event : e;
     key = key.charCode ? key.charCode: key.keyCode;
 
-    if(key === 13){// ENTER
+    // ENTER: generate new random number(s).
+    if(key === 13){
         random_number();
     }
 };
