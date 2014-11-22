@@ -70,8 +70,7 @@ document.getElementById('repeat').value = window.localStorage.getItem('RNG.htm-r
   : window.localStorage.getItem('RNG.htm-repeat');
 
 window.onkeydown = function(e){
-    var key = window.event ? event : e;
-    key = key.charCode ? key.charCode: key.keyCode;
+    var key = e.keyCode || e.which;
 
     // ENTER: generate new random number(s).
     if(key === 13){
