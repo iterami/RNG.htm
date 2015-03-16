@@ -28,26 +28,21 @@ function reset(){
     save();
 }
 
+// Save settings into window.localStorage if they differ from default.
 function save(){
     if(parseInt(document.getElementById('repeat').value) < 1){
         document.getElementById('repeat').value = 1;
     }
 
-    var loop_counter = 2;
-    do{
-        var id = [
-          'base',
-          'range',
-          'repeat',
-        ][loop_counter];
-
+    var ids = {
+      'base': 0,
+      'range': 10,
+      'repeat': 1,
+    };
+    for(var id in ids){
         if(isNaN(document.getElementById(id).value)
-          || document.getElementById(id).value === [0, 10, 1,][loop_counter]){
-            document.getElementById(id).value = [
-              0,
-              10,
-              1,
-            ][loop_counter];
+          || document.getElementById(id).value === ids[id]){
+            document.getElementById(id).value = ids[id];
             window.localStorage.removeItem('RNG.htm-' + id);
 
         }else{
@@ -56,18 +51,8 @@ function save(){
               document.getElementById(id).value
             );
         }
-    }while(loop_counter--);
+    }
 }
-
-document.getElementById('base').value = window.localStorage.getItem('RNG.htm-base') === null
-  ? 0
-  : window.localStorage.getItem('RNG.htm-base');
-document.getElementById('range').value = window.localStorage.getItem('RNG.htm-range') === null
-  ? 10
-  : window.localStorage.getItem('RNG.htm-range');
-document.getElementById('repeat').value = window.localStorage.getItem('RNG.htm-repeat') === null
-  ? 1
-  : window.localStorage.getItem('RNG.htm-repeat');
 
 window.onkeydown = function(e){
     var key = e.keyCode || e.which;
@@ -76,4 +61,16 @@ window.onkeydown = function(e){
     if(key === 13){
         random_number();
     }
+};
+
+window.onload = function(e){
+    document.getElementById('base').value = window.localStorage.getItem('RNG.htm-base') === null
+      ? 0
+      : window.localStorage.getItem('RNG.htm-base');
+    document.getElementById('range').value = window.localStorage.getItem('RNG.htm-range') === null
+      ? 10
+      : window.localStorage.getItem('RNG.htm-range');
+    document.getElementById('repeat').value = window.localStorage.getItem('RNG.htm-repeat') === null
+      ? 1
+      : window.localStorage.getItem('RNG.htm-repeat');
 };
