@@ -64,13 +64,7 @@ window.onkeydown = function(e){
 };
 
 window.onload = function(e){
-    document.getElementById('base').value = window.localStorage.getItem('RNG.htm-base') === null
-      ? 0
-      : window.localStorage.getItem('RNG.htm-base');
-    document.getElementById('range').value = window.localStorage.getItem('RNG.htm-range') === null
-      ? 10
-      : window.localStorage.getItem('RNG.htm-range');
-    document.getElementById('repeat').value = window.localStorage.getItem('RNG.htm-repeat') === null
-      ? 1
-      : window.localStorage.getItem('RNG.htm-repeat');
+    document.getElementById('base').value = window.localStorage.getItem('RNG.htm-base') || 0;
+    document.getElementById('range').value = window.localStorage.getItem('RNG.htm-range') || 10;
+    document.getElementById('repeat').value = window.localStorage.getItem('RNG.htm-repeat') || 1;
 };
