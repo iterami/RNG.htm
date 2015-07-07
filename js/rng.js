@@ -1,3 +1,5 @@
+'use strict';
+
 function random_number(){
     save();
 
