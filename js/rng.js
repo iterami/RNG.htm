@@ -6,12 +6,11 @@ function random_number(){
     var result = '';
 
     // Generate random number(s).
+    var base = parseInt(document.getElementById('base').value);
     var range = parseInt(document.getElementById('range').value) + 1;
     var loop_counter = parseInt(document.getElementById('repeat').value) - 1;
     do{
-        result += Math.floor(Math.random() * range
-          + parseInt(document.getElementById('base').value))
-          + ' ';
+        result += Math.floor(Math.random() * range + base) + ' ';
     }while(loop_counter--);
 
     document.getElementById('result').innerHTML = result;
@@ -42,15 +41,16 @@ function save(){
       'repeat': 1,
     };
     for(var id in ids){
-        if(isNaN(document.getElementById(id).value)
-          || document.getElementById(id).value == ids[id]){
+        var value = document.getElementById(id).value;
+        if(isNaN(value)
+          || value == ids[id]){
             document.getElementById(id).value = ids[id];
             window.localStorage.removeItem('RNG.htm-' + id);
 
         }else{
             window.localStorage.setItem(
               'RNG.htm-' + id,
-              document.getElementById(id).value
+              value
             );
         }
     }
