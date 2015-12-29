@@ -42,8 +42,8 @@ function save(){
     };
     for(var id in ids){
         var value = document.getElementById(id).value;
-        if(isNaN(value)
-          || value == ids[id]){
+        if(value == ids[id]
+          || isNaN(value)){
             document.getElementById(id).value = ids[id];
             window.localStorage.removeItem('RNG.htm-' + id);
 
