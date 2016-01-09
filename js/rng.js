@@ -66,7 +66,12 @@ window.onkeydown = function(e){
 };
 
 window.onload = function(e){
-    document.getElementById('base').value = window.localStorage.getItem('RNG.htm-base') || 0;
-    document.getElementById('range').value = window.localStorage.getItem('RNG.htm-range') || 10;
-    document.getElementById('repeat').value = window.localStorage.getItem('RNG.htm-repeat') || 1;
+    var ids = {
+      'base': 0,
+      'range': 10,
+      'repeat': 1,
+    };
+    for(var id in ids){
+        document.getElementById(id).value = window.localStorage.getItem('RNG.htm-' + id) || ids[id];
+    }
 };
