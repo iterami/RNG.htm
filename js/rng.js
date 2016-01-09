@@ -1,6 +1,6 @@
 'use strict';
 
-function random_number(){
+function generate(){
     save();
 
     var result = '';
@@ -61,7 +61,7 @@ window.onkeydown = function(e){
 
     // ENTER: generate new random number(s).
     if(key === 13){
-        random_number();
+        generate();
     }
 };
 
@@ -74,4 +74,6 @@ window.onload = function(e){
     for(var id in ids){
         document.getElementById(id).value = window.localStorage.getItem('RNG.htm-' + id) || ids[id];
     }
+
+    generate();
 };
