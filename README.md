@@ -1,5 +1,5 @@
-RNG.htm
--------
+iterami/RNG.htm
+---------------
 
 A web-based random number generator tool.
 
