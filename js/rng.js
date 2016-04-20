@@ -6,9 +6,18 @@ function generate(){
     var result = '';
 
     // Generate random number(s).
-    var base = parseInt(document.getElementById('base').value);
-    var range = parseInt(document.getElementById('range').value) + 1;
-    var loop_counter = parseInt(document.getElementById('repeat').value) - 1;
+    var base = parseInt(
+      document.getElementById('base').value,
+      10
+    );
+    var range = parseInt(
+      document.getElementById('range').value,
+      10
+    ) + 1;
+    var loop_counter = parseInt(
+      document.getElementById('repeat').value,
+      10
+    ) - 1;
     do{
         result += Math.floor(Math.random() * range + base) + ' ';
     }while(loop_counter--);
@@ -31,7 +40,7 @@ function reset(){
 
 // Save settings into window.localStorage if they differ from default.
 function save(){
-    if(parseInt(document.getElementById('repeat').value) < 1){
+    if(parseInt(document.getElementById('repeat').value, 10) < 1){
         document.getElementById('repeat').value = 1;
     }
 
