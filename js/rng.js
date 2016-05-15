@@ -34,9 +34,6 @@ window.onload = function(e){
       }
     );
 
-    for(var setting in settings){
-        document.getElementById(setting).value = settings[setting];
-    }
-
+    update_settings();
     generate();
 };
