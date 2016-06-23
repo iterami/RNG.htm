@@ -18,16 +18,14 @@ function generate(){
     document.getElementById('result').innerHTML = result;
 }
 
-window.onkeydown = function(e){
-    var key = e.keyCode || e.which;
-
-    // ENTER: generate new random number(s).
-    if(key === 13){
-        generate();
-    }
-};
-
 window.onload = function(e){
+    init_input(
+      {
+        13: {
+          'todo': generate,
+        },
+      }
+    );
     init_settings(
       'RNG.htm-',
       {
