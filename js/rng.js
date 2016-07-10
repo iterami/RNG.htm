@@ -1,17 +1,17 @@
 'use strict';
 
 function generate(){
-    save();
+    settings_save();
 
     var result = '';
 
     // Generate random number(s).
-    var loop_counter = settings['repeat'] - 1;
-    var range = settings['range'] + 1;
+    var loop_counter = settings_settings['repeat'] - 1;
+    var range = settings_settings['range'] + 1;
     do{
-        result += Math.floor(Math.random() * range + settings['base']);
+        result += Math.floor(Math.random() * range + settings_settings['base']);
         if(loop_counter > 0){
-            result += settings['separator'];
+            result += settings_settings['separator'];
         }
     }while(loop_counter--);
 
@@ -26,7 +26,7 @@ window.onload = function(e){
         },
       }
     );
-    init_settings(
+    settings_init(
       'RNG.htm-',
       {
         'base': 0,
@@ -36,6 +36,6 @@ window.onload = function(e){
       }
     );
 
-    update_settings();
+    settings_update();
     generate();
 };
