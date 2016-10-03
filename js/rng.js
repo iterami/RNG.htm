@@ -38,4 +38,7 @@ window.onload = function(e){
 
     settings_update();
     generate();
+
+    document.getElementById('generate').onclick = generate;
+    document.getElementById('settings-reset').onclick = settings_reset;
 };
