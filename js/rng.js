@@ -26,15 +26,15 @@ window.onload = function(e){
         },
       }
     );
-    settings_init(
-      'RNG.htm-',
-      {
+    settings_init({
+      'prefix': 'RNG.htm-',
+      'settings': {
         'base': 0,
         'range': 10,
         'repeat': 1,
         'separator': ', ',
-      }
-    );
+      },
+    });
 
     settings_update();
     generate();
