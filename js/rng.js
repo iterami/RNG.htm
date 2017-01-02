@@ -21,13 +21,13 @@ function generate(){
 }
 
 window.onload = function(e){
-    input_init(
-      {
+    input_init({
+      'keybinds': {
         13: {
           'todo': generate,
         },
-      }
-    );
+      },
+    });
     settings_init({
       'prefix': 'RNG.htm-',
       'settings': {
