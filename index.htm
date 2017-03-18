@@ -4,13 +4,21 @@
 <title>RNG.htm</title>
 <link href=../common/css/dom.css rel=stylesheet>
 
-<input id=base value=0>
-  +
-  <input id=range value=10><br>
-x<input id=repeat value=1>
-  <input id=separator value=", "><br>
-<input id=generate type=button value="Generate [ENTER]">
-  <input id=settings-reset type=button value=Reset>
+<table>
+  <tr>
+    <td>Base
+    <td><input id=base value=0>
+  <tr>
+    <td>Range
+    <td><input id=range value=10>
+  <tr>
+    <td>Repeat
+    <td><input id=repeat value=1>
+  <tr>
+    <td>Separator
+    <td><input id=separator value=", ">
+</table>
+<input id=generate type=button value="Generate [ENTER]"><input id=settings-reset type=button value=Reset>
 <hr>
 <div id=result></div>
 
