@@ -9,9 +9,10 @@ function generate(){
     var loop_counter = storage_data['repeat'] - 1;
     var range = storage_data['range'] + 1;
     do{
-        result += random_integer({
+        result += core_random_integer({
           'max': range,
         }) + storage_data['base'];
+
         if(loop_counter > 0){
             result += storage_data['separator'];
         }
