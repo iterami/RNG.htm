@@ -1,20 +1,20 @@
 'use strict';
 
 function generate(){
-    storage_save();
+    core_storage_save();
 
     var result = '';
 
     // Generate random number(s).
-    var loop_counter = storage_data['repeat'] - 1;
-    var range = storage_data['range'] + 1;
+    var loop_counter = core_storage_data['repeat'] - 1;
+    var range = core_storage_data['range'] + 1;
     do{
         result += core_random_integer({
           'max': range,
-        }) + storage_data['base'];
+        }) + core_storage_data['base'];
 
         if(loop_counter > 0){
-            result += storage_data['separator'];
+            result += core_storage_data['separator'];
         }
     }while(loop_counter--);
 
@@ -29,7 +29,7 @@ window.onload = function(e){
         },
       },
     });
-    storage_init({
+    core_storage_init({
       'data': {
         'base': 0,
         'range': 10,
@@ -39,11 +39,11 @@ window.onload = function(e){
       'prefix': 'RNG.htm-',
     });
 
-    storage_update();
+    core_storage_update();
     generate();
 
     document.getElementById('generate').onclick = generate;
     document.getElementById('settings-reset').onclick = function(e){
-        storage_reset();
+        core_storage_reset();
     };
 };
