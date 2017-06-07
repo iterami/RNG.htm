@@ -22,14 +22,14 @@ function generate(){
 }
 
 function repo_init(){
-    core_storage_init({
-      'data': {
+    core_repo_init({
+      'storage': {
         'base': 0,
         'range': 10,
         'repeat': 1,
         'separator': ', ',
       },
-      'prefix': 'RNG.htm-',
+      'title': 'RNG.htm',
     });
     core_events_bind({
       'keybinds': {
