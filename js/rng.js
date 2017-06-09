@@ -23,6 +23,11 @@ function generate(){
 
 function repo_init(){
     core_repo_init({
+      'keybinds': {
+        13: {
+          'todo': generate,
+        },
+      },
       'storage': {
         'base': 0,
         'range': 10,
@@ -30,13 +35,6 @@ function repo_init(){
         'separator': ', ',
       },
       'title': 'RNG.htm',
-    });
-    core_events_bind({
-      'keybinds': {
-        13: {
-          'todo': generate,
-        },
-      },
     });
 
     core_storage_update();
