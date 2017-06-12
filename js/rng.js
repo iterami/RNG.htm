@@ -34,6 +34,7 @@ function repo_init(){
         'repeat': 1,
         'separator': ', ',
       },
+      'storage-menu': '<input id=base>Base<br><input id=range>Range<br><input id=repeat>Repeat<br><input id=separator>Separator',
       'title': 'RNG.htm',
     });
 
@@ -41,7 +42,4 @@ function repo_init(){
     generate();
 
     document.getElementById('generate').onclick = generate;
-    document.getElementById('settings-reset').onclick = function(e){
-        core_storage_reset();
-    };
 }
