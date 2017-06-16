@@ -34,7 +34,7 @@ function repo_init(){
         'repeat': 1,
         'separator': ', ',
       },
-      'storage-menu': '<input id=base>Base<br><input id=range>Range<br><input id=repeat>Repeat<br><input id=separator>Separator',
+      'storage-menu': '<table><tr><td><input id=base><td>Base<tr><td><input id=range><td>Range<tr><td><input id=repeat><td>Repeat<tr><td><input id=separator><td>Separator</table>',
       'title': 'RNG.htm',
     });
 
