@@ -2,6 +2,11 @@
 
 function repo_init(){
     core_repo_init({
+      'info-events': {
+        'generate': {
+          'todo': generate,
+        },
+      },
       'keybinds': {
         13: {
           'todo': generate,
@@ -17,8 +22,5 @@ function repo_init(){
       'title': 'RNG.htm',
     });
 
-    core_storage_update();
     generate();
-
-    document.getElementById('generate').onclick = generate;
 }
