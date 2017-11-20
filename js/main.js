@@ -12,6 +12,7 @@ function repo_init(){
           'todo': generate,
         },
       },
+      'menu': true,
       'storage': {
         'base': 0,
         'range': 10,
