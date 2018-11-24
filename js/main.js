@@ -13,6 +13,7 @@ function repo_init(){
         },
       },
       'menu': true,
+      'menu-block-events': false,
       'storage': {
         'base': 0,
         'range': 10,
