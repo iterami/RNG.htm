@@ -20,7 +20,10 @@ function repo_init(){
         'repeat': 1,
         'separator': ', ',
       },
-      'storage-menu': '<table><tr><td><input id=base><td>Base<tr><td><input id=range><td>Range<tr><td><input id=repeat><td>Repeat<tr><td><input id=separator><td>Separator</table>',
+      'storage-menu': '<table><tr><td><input id=base><td>Base'
+        + '<tr><td><input id=range><td>Range'
+        + '<tr><td><input id=repeat><td>Repeat'
+        + '<tr><td><input id=separator><td>Separator</table>',
       'title': 'RNG.htm',
     });
 
