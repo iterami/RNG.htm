@@ -18,5 +18,5 @@ function generate(){
         }
     }while(loop_counter--);
 
-    document.getElementById('result').innerHTML = result;
+    document.getElementById('result').value = result;
 }
