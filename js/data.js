@@ -7,7 +7,7 @@ function generate(){
 
     // Generate random number(s).
     let loop_counter = core_storage_data['repeat'] - 1;
-    let range = core_storage_data['range'] + 1;
+    const range = core_storage_data['range'] + 1;
     do{
         if(core_storage_data['crypto']){
 console.log(1);
