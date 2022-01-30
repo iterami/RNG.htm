@@ -22,10 +22,10 @@ function repo_init(){
         'repeat': 1,
         'separator': ', ',
       },
-      'storage-menu': '<table><tr><td><input id=base type=number><td>Base'
+      'storage-menu': '<table><tr><td><input id=base step=any type=number><td>Base'
         + '<tr><td><input id=crypto type=checkbox><td>Crypto'
-        + '<tr><td><input id=range type=number><td>Range'
-        + '<tr><td><input id=repeat min=1 type=number><td>Repeat'
+        + '<tr><td><input id=range step=any type=number><td>Range'
+        + '<tr><td><input id=repeat min=1 step=any type=number><td>Repeat'
         + '<tr><td><input id=separator><td>Separator</table>',
       'title': 'RNG.htm',
     });
