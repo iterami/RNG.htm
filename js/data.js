@@ -9,7 +9,6 @@ function generate(){
     const range = core_storage_data['range'] + 1;
     do{
         if(core_storage_data['crypto']){
-console.log(1);
             result += Math.floor((core_random_crypto({
               'type': 'Uint32Array',
             }) / 4294967295) * range);
