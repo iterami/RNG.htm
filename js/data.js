@@ -1,7 +1,15 @@
 'use strict';
 
 function generate(){
-    core_storage_save();
+    core_storage_save({
+      'keys': [
+        'base',
+        'crypto',
+        'range',
+        'repeat',
+        'separator',
+      ],
+    });
 
     let result = '';
 
