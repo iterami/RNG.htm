@@ -33,4 +33,5 @@ function generate(){
     }while(loop_counter--);
 
     document.getElementById('result').value = result;
+    document.title = core_repo_title + ': ' + result;
 }
