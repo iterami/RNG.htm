@@ -26,7 +26,7 @@ function repo_init(){
         + '<tr><td><input id=crypto type=checkbox><td>Crypto'
         + '<tr><td><input class=mini id=range step=any type=number><td>Range'
         + '<tr><td><input class=mini id=repeat min=1 step=any type=number><td>Repeat'
-        + '<tr><td><input class=mini id=separator><td>Separator</table>',
+        + '<tr><td><input class=mini id=separator type=text><td>Separator</table>',
       'title': 'RNG.htm',
     });
 
