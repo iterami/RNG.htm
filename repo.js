@@ -51,6 +51,7 @@ function repo_init(){
       },
       'menu': true,
       'menu-block-events': false,
+      'menu-lock': true,
       'storage': {
         'base': 0,
         'crypto': false,
