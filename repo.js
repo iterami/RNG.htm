@@ -30,7 +30,7 @@ function generate(){
         }
     }while(loop_counter--);
 
-    document.getElementById('result').value = result;
+    core_elements['result'].value = result;
     document.title = result + ' - ' + core_repo_title;
 }
 
@@ -62,6 +62,9 @@ function repo_init(){
         + '<tr><td><input class=mini id=repeat min=1 step=any type=number><td>Repeat'
         + '<tr><td><input class=mini id=separator type=text><td>Separator</table>',
       'title': 'RNG.htm',
+      'ui-elements': [
+        'result',
+      ],
     });
 
     generate();
