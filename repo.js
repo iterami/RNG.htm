@@ -11,7 +11,7 @@ function generate(){
 
     let result = '';
 
-    let loop_counter = core_storage_data['repeat'] - 1;
+    let loop_counter = Math.floor(core_storage_data['repeat']) - 1;
     const range = core_storage_data['range'] + 1;
     do{
         if(core_storage_data['crypto']){
@@ -59,7 +59,7 @@ function repo_init(){
       'storage-menu': '<table><tr><td><input class=mini id=base step=any type=number><td>Base'
         + '<tr><td><input id=crypto type=checkbox><td>Crypto'
         + '<tr><td><input class=mini id=range step=any type=number><td>Range'
-        + '<tr><td><input class=mini id=repeat min=1 step=any type=number><td>Repeat'
+        + '<tr><td><input class=mini id=repeat min=1 step=1 type=number><td>Repeat'
         + '<tr><td><input class=mini id=separator type=text><td>Separator</table>',
       'title': 'RNG.htm',
       'ui-elements': [
