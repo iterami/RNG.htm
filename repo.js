@@ -20,9 +20,7 @@ function generate(){
             }) / 4294967295) * range);
 
         }else{
-            result += core_random_integer({
-              'max': range,
-            }) + core_storage_data['base'];
+            result += core_random_integer(range) + core_storage_data['base'];
         }
 
         if(loop_counter > 0){
