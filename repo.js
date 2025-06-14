@@ -11,24 +11,24 @@ function generate(){
 
     let result = '';
 
-    let loop_counter = Math.floor(core_storage_data['repeat']) - 1;
-    const range = core_storage_data['range'] + 1;
+    let loop_counter = Math.floor(core_storage_data.repeat) - 1;
+    const range = core_storage_data.range + 1;
     do{
-        if(core_storage_data['crypto']){
+        if(core_storage_data.crypto){
             result += Math.floor((core_random_crypto({
               'type': 'Uint32Array',
             }) / 4294967295) * range);
 
         }else{
-            result += core_random_integer(range) + core_storage_data['base'];
+            result += core_random_integer(range) + core_storage_data.base;
         }
 
         if(loop_counter > 0){
-            result += core_storage_data['separator'];
+            result += core_storage_data.separator;
         }
     }while(loop_counter--);
 
-    core_elements['result'].value = result;
+    core_elements.result.value = result;
     document.title = result + ' - ' + core_repo_title;
 }
 
@@ -39,7 +39,7 @@ function repo_init(){
           'onclick': generate,
         },
       },
-      'info': '<button id=generate type=button>Generate [ENTER]</button><br><textarea id=result></textarea>',
+      'info': '<button id=generate type=button>Generate [ENTER]</button><br><textarea id=result readonly></textarea>',
       'keybinds': {
         'Enter': {
           'todo': generate,
