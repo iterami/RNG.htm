@@ -46,7 +46,7 @@ function repo_init(){
         },
       },
       'menu_block_events': false,
-      'menu-lock': true,
+      'menu_lock': true,
       'storage': {
         'base': 0,
         'crypto': false,
