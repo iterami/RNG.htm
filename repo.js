@@ -60,7 +60,7 @@ function repo_init(){
         + '<tr><td><input class=mini id=repeat min=1 step=1 type=number><td>Repeat'
         + '<tr><td><input class=mini id=separator type=text><td>Separator</table>',
       'title': 'RNG.htm',
-      'ui-elements': [
+      'ui_elements': [
         'result',
       ],
     });
