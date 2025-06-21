@@ -54,7 +54,7 @@ function repo_init(){
         'repeat': 1,
         'separator': ', ',
       },
-      'storage-menu': '<table><tr><td><input class=mini id=base step=any type=number><td>Base'
+      'storage_menu': '<table><tr><td><input class=mini id=base step=any type=number><td>Base'
         + '<tr><td><input id=crypto type=checkbox><td>Crypto'
         + '<tr><td><input class=mini id=range step=any type=number><td>Range'
         + '<tr><td><input class=mini id=repeat min=1 step=1 type=number><td>Repeat'
