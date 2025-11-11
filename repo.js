@@ -15,12 +15,12 @@ function generate(){
     const range = core_storage_data.range + 1;
     do{
         if(core_storage_data.crypto){
-            result += Math.floor((core_random_crypto({
-              'type': 'Uint32Array',
-            }) / 4294967295) * range);
+            const array = new globalThis.Uint32Array(1);
+            globalThis.crypto.getRandomValues(array);
+            result += core_storage_data.base + Math.floor(array[0] / 4294967295 * range);
 
         }else{
-            result += core_random_integer(range) + core_storage_data.base;
+            result += core_storage_data.base + core_random_integer(range);
         }
 
         if(loop_counter > 0){
@@ -39,7 +39,7 @@ function repo_init(){
           'onclick': generate,
         },
       },
-      'info': '<button id=generate type=button>Generate [ENTER]</button><br><textarea id=result readonly></textarea>',
+      'info': '<textarea id=result readonly></textarea><br><button id=generate type=button>Generate [ENTER]</button>',
       'keybinds': {
         'Enter': {
           'todo': generate,
@@ -54,11 +54,11 @@ function repo_init(){
         'repeat': 1,
         'separator': ', ',
       },
-      'storage_menu': '<table><tr><td><input class=mini id=base step=any type=number><td>Base'
+      'storage_menu': '<table><tr><td><input id=base step=any type=number><td>Base'
         + '<tr><td><input id=crypto type=checkbox><td>Crypto'
-        + '<tr><td><input class=mini id=range step=any type=number><td>Range'
-        + '<tr><td><input class=mini id=repeat min=1 step=1 type=number><td>Repeat'
-        + '<tr><td><input class=mini id=separator type=text><td>Separator</table>',
+        + '<tr><td><input id=range step=any type=number><td>Range'
+        + '<tr><td><input id=repeat min=1 step=1 type=number><td>Repeat'
+        + '<tr><td><input id=separator type=text><td>Separator</table>',
       'title': 'RNG.htm',
       'ui_elements': [
         'result',
