@@ -42,7 +42,7 @@ function repo_init(){
       'info': '<textarea id=result readonly></textarea><br><button id=generate type=button>Generate [ENTER]</button>',
       'keybinds': {
         'Enter': {
-          'todo': generate,
+          'down': generate,
         },
       },
       'menu_block_events': false,
