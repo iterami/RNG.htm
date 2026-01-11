@@ -1,14 +1,6 @@
 'use strict';
 
 function generate(){
-    core_storage_save([
-      'base',
-      'crypto',
-      'range',
-      'repeat',
-      'separator',
-    ]);
-
     let result = '';
 
     let loop_counter = Math.floor(core_storage_data.repeat) - 1;
