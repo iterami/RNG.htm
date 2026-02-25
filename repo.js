@@ -3,9 +3,8 @@
 function generate(){
     let result = '';
 
-    let loop_counter = Math.floor(core_storage_data.repeat) - 1;
     const range = core_storage_data.range + 1;
-    do{
+    for(let i = 0; i < core_storage_data.repeat; i++){
         if(core_storage_data.crypto){
             const array = new globalThis.Uint32Array(1);
             globalThis.crypto.getRandomValues(array);
@@ -15,10 +14,10 @@ function generate(){
             result += core_storage_data.base + core_random_integer(range);
         }
 
-        if(loop_counter > 0){
+        if(i !== core_storage_data.repeat - 1){
             result += core_storage_data.separator;
         }
-    }while(loop_counter--);
+    }
 
     core_elements.result.value = result;
     document.title = result + ' - ' + core_repo_title;
