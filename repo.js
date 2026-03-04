@@ -46,7 +46,7 @@ function repo_init(){
         'separator': ', ',
       },
       'storage_menu': '<table><tr><td><input id=base step=any type=number><td>Base'
-        + '<tr><td><input id=crypto type=checkbox><td>Crypto'
+        + '<tr><td><input id=crypto type=checkbox><td>Cryptographic'
         + '<tr><td><input id=range step=any type=number><td>Range'
         + '<tr><td><input id=repeat min=1 step=1 type=number><td>Repeat'
         + '<tr><td><input id=separator type=text><td>Separator</table>',
