@@ -20,7 +20,7 @@ function generate(){
     }
 
     core_elements.result.value = result;
-    document.title = result + ' - ' + core_repo_title;
+    document.title = result + ' = ' + core_repo_title;
 }
 
 function repo_init(){
