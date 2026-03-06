@@ -8,10 +8,21 @@ function generate(){
         if(core_storage_data.crypto){
             const array = new globalThis.Uint32Array(1);
             globalThis.crypto.getRandomValues(array);
-            result += core_storage_data.base + Math.floor(array[0] / 4294967295 * range);
+            const value = array[0] / 4294967295 * range;
+            result += core_storage_data.decimals === 0
+              ? core_storage_data.base + Math.floor(value)
+              : core_number_format({
+                  'decimals_max': core_storage_data.decimals,
+                  'number': core_storage_data.base + value,
+                });
 
         }else{
-            result += core_storage_data.base + core_random_integer(range);
+            result += core_storage_data.decimals === 0
+              ? core_storage_data.base + core_random_integer(range)
+              : core_number_format({
+                  'decimals_max': core_storage_data.decimals,
+                  'number': core_storage_data.base + Math.random() * range,
+                });
         }
 
         if(i !== core_storage_data.repeat - 1){
@@ -41,11 +52,13 @@ function repo_init(){
       'storage': {
         'base': 0,
         'crypto': false,
+        'decimals': 0,
         'range': 10,
         'repeat': 1,
         'separator': ', ',
       },
-      'storage_menu': '<table><tr><td><input id=base step=any type=number><td>Base'
+      'storage_menu': '<table><tr><td><input id=decimals min=0 step=1 type=number><td>Decimals'
+        + '<tr><td><input id=base step=any type=number><td>Base'
         + '<tr><td><input id=range step=any type=number><td>Range'
         + '<tr><td><input id=repeat min=1 step=1 type=number><td>Repeat'
         + '<tr><td><input id=separator type=text><td>Separator'
