@@ -57,12 +57,9 @@ function repo_init(){
         'repeat': 1,
         'separator': ', ',
       },
-      'storage_menu': '<table><tr><td><input id=decimals min=0 step=1 type=number><td>Decimals'
-        + '<tr><td><input id=base step=any type=number><td>Base'
-        + '<tr><td><input id=range step=any type=number><td>Range'
-        + '<tr><td><input id=repeat min=1 step=1 type=number><td>Repeat'
-        + '<tr><td><input id=separator type=text><td>Separator'
-        + '<tr class=right><td><input id=crypto type=checkbox><td><label for=crypto>Cryptographic</label></table>',
+      'storage_menu': '<table><tr><td><input id=base step=any type=number><td>to <input id=range step=any type=number>'
+        + '<tr><td><input class=mini id=repeat min=1 step=1 type=number> Repeat<td><input class=mini id=separator type=text> Separator'
+        + '<tr><td><input class=mini id=decimals min=0 step=1 type=number> Decimals<td><label><input id=crypto type=checkbox> Cryptographic</label></table>',
       'title': 'RNG.htm',
       'ui_elements': [
         'result',
